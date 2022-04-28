@@ -1,0 +1,52 @@
+<DOCTYPE>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css rel="stylesheet" integrity="sha3841BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> 
+            <title>Personal Blog</title>
+            <body>
+                <!--Navbar component-->
+                <div class="container">
+                  <div class="row">
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <a class="navbar-brand" href="#">
+                            <img src="../static/main/logo_dev.jpg" alt="" width="80" height="80" class="d-inline-block align-text-top">
+                        </a>
+                          <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+                              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                                <div class="navbar-nav">
+                                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                  <a class="nav-link" href="/academics">Academics</a>
+                                  <a class="nav-link" href="/posts">All Posts</a>
+                                  <a class="nav-link" href="/contactme">Contact Me</a>
+                                </div>
+                              </div>
+                          </div>
+                      </nav>
+                  </div>
+                </div>
+                <br>
+            <h1>New Post</h1>
+            <form action="/posts" method="POST">
+            {{template_form.hidden_tag()}}
+            <p>
+              {{template_form.date.label}}
+              {{template_form.date}}
+          </p>
+          <br>
+          <p>
+            {{template_form.post_message.label}}
+            {{template_form.post_message}}
+        </p>
+        <p>
+          {{template_form.submit}}
+        </p>
+            <br>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.js" crossorigin="anonymous"></script>
+    </html>
+</DOCTYPE>
