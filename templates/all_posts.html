@@ -1,0 +1,28 @@
+<DOCTYPE>
+    <html>
+        <body>
+            <br>
+            <a href="/">Back To Main Screen</a>
+            <br>
+            <h1>Summary Of All Posts</h1>
+            {% for item in posts %}
+            <div>
+            <table>
+                <tbody>
+                    <tr>
+                    <th>Date</th>
+                    <td>{{item["date"]}}</td>
+                </tr>
+                <tr>
+                    <th>Post</th>
+                    <td>{{item["post"]}}</td>
+                </tr>
+                </tbody>              
+            </table>
+            </div>
+            <br>
+            {% endfor %}
+            </form>
+        </body>
+    </html>
+</DOCTYPE>
