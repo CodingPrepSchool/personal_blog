@@ -18,27 +18,38 @@ def index_page():
 def academics_page():
     return render_template("academics.html")
 
+@app.route("/hobbies")
+def hobbies_page():
+    return render_template("hobbies.html")
 
 file_connection = open("C:/code/github/personal_blog/all_posts.json", 'r')
 posts = json.load(file_connection)
 file_connection.close()
 
 
-@app.route("/all_posts", methods=["GET", "POST"])
+@app.route("/add_posts", methods=["GET", "POST"])
 def all_the_posts():
     post = Blog(csrf_enabled=False)
     if post.validate_on_submit():
         id = len(posts) + 1
         posts.append({
-            "date": post.date.data,
-            "post": post.post.data
+            "date": str(post.date.data),
+            "post": str(post.post.data)
             })
+        print("My date", posts)
         file_connection = open("C:/code/github/personal_blog/all_posts.json", 'w')
         json.dump(posts, file_connection)
         file_connection.close()
-    return render_template("all_posts.html",posts=posts, template_form = post)
+    print("my post:", posts)
+    return render_template("message.html",posts=posts, template_form = post)
 
+@app.route("/all_posts")
+def all_of_the_posts():
+    return render_template("all_posts.html",posts = posts)
 
+@app.route("/contacts")
+def contacts():
+    return render_template("contacts.html")
 
 
 if __name__ == "__main__":
