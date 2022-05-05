@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = 'mysecret'
 
 @app.route("/")
 def index():
-    new_post = NewPost(csrf_enaled=False)
+    new_post = NewPost(meta={'csrf': False})
     return render_template("blog.html", template_form = new_post)
 
 # Add a New Post #
@@ -18,7 +18,7 @@ file_connection.close()
 
 @app.route("/add-post", methods=["POST"])
 def new_post():
-    new_post = NewPost(csrf_enabled=False)
+    new_post = NewPost(meta={'csrf': False})
     if new_post.validate_on_submit():
         id = len(posts_json) + 1
         posts_json.append({
