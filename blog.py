@@ -18,7 +18,7 @@ file_connection.close()
 
 @app.route("/add-post", methods=["POST"])
 def new_post():
-    new_post = NewPost(csrf_enaled=False)
+    new_post = NewPost(csrf_enabled=False)
     if new_post.validate_on_submit():
         id = len(posts_json) + 1
         posts_json.append({
